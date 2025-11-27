@@ -68,7 +68,7 @@ class GaussianVectorQuantizer(nn.Module):
     # TODO: 
     def get_index(self, z_pos, var_q_pos, codebook):
         # z_pos: B, C, H, W
-        # bs, dim_z, width, height = z_pos.shape
+        bs, dim_z, width, height = z_pos.shape
         z_pos_permuted = z_pos.permute(0, 2, 3, 1).contiguous()     # B, H, W, C
         if torch.numel(var_q_pos) > 1:
             var_q_pos_main = var_q_pos[-1]
@@ -79,9 +79,13 @@ class GaussianVectorQuantizer(nn.Module):
         # prob_pos = torch.softmax(logit_pos, dim=-1)
         # log_prob_pos = torch.log_softmax(logit_pos, dim=-1)
         indices = torch.argmax(logit_pos, dim=1).unsqueeze(1)
-        return indices
+        encodings_hard = torch.zeros(indices.shape[0], self.size_dict, device=self.device)
+        encodings_hard.scatter_(1, indices, 1)
+        z_quantized = torch.matmul(encodings_hard, codebook).view(bs, width, height, dim_z)
+        z_to_decoder = z_quantized.permute(0, 3, 1, 2).contiguous()
+        return indices, z_to_decoder
         
-        
+    # TODO:  
     def get_vector(self, indices, codebook, bs, dim_z, width, height):
         encodings_hard = torch.zeros(indices.shape[0], self.size_dict, device=self.device)
         encodings_hard.scatter_(1, indices, 1)
