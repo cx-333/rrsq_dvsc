@@ -8,13 +8,22 @@
 Codebook-assisted semantic communication often suffers significant degradation in reconstruction quality and Quality-of-Service (QoS) due to index perturbations caused by unreliable channels. In this paper, we propose Reordered Residual Stochastic Quantization for robust Digital Video Semantic Communication (RRSQ-DVSC) from the perspective of semantic space organization. Specifically, We design a semantic-aware clustering algorithm to enlarge the distance between semantically disadjacent codewords and arrange semantically similar counterparts in close proximity. This approach effectively transforms index perturbations into bounded semantic distortions. Moreover, we propose a Semantic-Guided Reconstruction (SGR) module equipped with cross-window fusion attention to enhance inter-frame semantic consistency in long video sequences. Experimental results on the HEVC Class B dataset demonstrate that at an SNR of 1 dB, the proposed RRSQ-DVSC achieves improvements of 4.91\% in PSNR, 5.52\% in MS-SSIM, and 14.25\% in LPIPS over its counterpart without codebook reordering, validating its effectiveness for robust semantic video communication.
 </div>
 
-## 🖥️ Building Environment
+
+## 🖥️ Prerequisites
+ - Python 3.12 and conda, get [Conda](https://www.anaconda.com/download).
+ - CUDA 12.6 if you have a NVIDIA GPU, get [CUDA](https://developer.nvidia.com/cuda-downloads).
+ - Environment setup:
 
 ```shell
-conda create -n rrsq_digital_semantic_com python=3.10
+conda create -n rrsq_digital_semantic_com python=3.12
 conda activate rrsq_digital_semantic_com
+
+pip install torch==2.8.0 torchvision==0.23.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cu126
+
 pip install -r requirements.txt
 ```
+
+
 
 ## 🗂️ Test Dataset
 
@@ -22,7 +31,8 @@ pip install -r requirements.txt
 
 ## 🗃️ Pre-trained Model 
 
-The model will released soon.
+The model is placed in the `checkpoints` folder.
+
 
 ## 📊 Evaluation 
 
