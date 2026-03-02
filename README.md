@@ -27,11 +27,14 @@ pip install -r requirements.txt
 
 ## 🗂️ Test Dataset
 
+We support arbitrary original resolution. The input video resolution will be padded to 64x automatically. The reconstructed video will be cropped back to the original size. The distortion (PSNR/MS-SSIm/LPIPS) is computed at original resolution.
+
+
 
 
 ## 🗃️ Pre-trained Model 
 
-The model is placed in the `checkpoints` folder.
+The image and video model is placed in the `checkpoints` folder.
 
 
 ## 📊 Evaluation 
