@@ -55,6 +55,7 @@ The image and video model is placed in the `checkpoints` folder.
 
 
 ## 📜 Citation 
+If you find our work useful in your research, please consider citing:
 
 ```
 TBD.
@@ -64,11 +65,4 @@ TBD.
 ## 🤝 Acknowledgement
 
 Our research is based on [DCVC](https://github.com/microsoft/DCVC) and [Swin-Transformer](https://github.com/microsoft/Swin-Transformer). Thanks for their excellent work.
-
-
-<!-- ```
-git add README.md
-git commit -m "Add README.md"
-git push -u origin main
-``` -->
 
