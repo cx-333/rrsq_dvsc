@@ -29,7 +29,19 @@ pip install -r requirements.txt
 
 We support arbitrary original resolution. The input video resolution will be padded to 64x automatically. The reconstructed video will be cropped back to the original size. The distortion (PSNR/MS-SSIm/LPIPS) is computed at original resolution.
 
+Put the `*.yuv` video files in the folder structure similar to the following structure.
 
+```
+data/HEVC/ClassB/
+       |- BasketballDrive_1920x1080_50.yuv
+       |- BQTerrace_1920x1080_50.yuv
+       |-...
+data/HEVC/ClassC/
+       |- ...
+...
+```
+
+> Note: May you need to change the data path in the `testcase.py` to your own path.
 
 
 ## 🗃️ Pre-trained Model 
